@@ -1,0 +1,19 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Active Listings</h2>
+    
+    {% for listing in listings %}
+        <div class="list-group">
+            <a href="{% url 'listing' listing.id %}" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{listing.title}}</h5>
+                <small>3 days ago</small>
+              </div>
+              <p class="mb-1">{{ listing.short_description }}</p>
+              <small class="text-muted">{{listing.category}}</small>
+            </a>
+        </div>
+    {% endfor %}
+
+{% endblock %}

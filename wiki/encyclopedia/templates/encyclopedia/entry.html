@@ -1,0 +1,27 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {% if name != None %}
+        {{ title }}
+    {% else %}
+        Error
+    {% endif %}
+        
+{% endblock %}
+
+{% block body %}
+
+    {% if name != None %}
+        {{ name |safe }}
+    {% else %}
+
+    <h1 style="text-align:center; color: red;">Error!</h1>
+    <h2 style="text-align:center">The page you requested was not found.</h1>
+
+    <div style="display:flex; justify-content: center;">
+        <span class="material-symbols-outlined">warning</span>
+    </div>
+
+    {% endif %}
+
+{% endblock %}

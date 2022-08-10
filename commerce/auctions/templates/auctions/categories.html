@@ -1,0 +1,12 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Watchlist</h2>
+
+    {% for category in categories %}
+        <div style="display:flex; margin:10px; font-size:15px;">
+            <a href="{% url 'filter' category.title %}">{{ category.title }}</a>
+        </div>
+    {% endfor %}
+
+{% endblock %}

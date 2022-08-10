@@ -1,0 +1,54 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h1>{{listing.title}}</h1>
+    <h3>By {{listing.owner}}</h3>
+
+    <h2>Category: {{listing.category}}</h2>
+
+    <form action="theUrl" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="param1" value="val" />
+        <input type="hidden" name="param2" value="val2" />
+        
+        <h5><a href="{% url 'watchlist' %}" onclick="this.parentNode.submit()">Add to Watchlist</a></h5>
+        
+    </form>
+
+    <h2>Current Bid: {{b.current_bid}}</h2>
+    <h4>Current Bidder: {{b.bidder}}</h4>
+    <h3>Bid on Item:</h3>
+    {% if message %}
+        {{ message }}
+    {% endif %}
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">$</span>
+          <span class="input-group-text">0.00</span>
+        </div>
+        <form method="post" action="{% url 'listing' listing.id %}">
+            {% csrf_token %}
+            <input name="bid" type="number" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+        </form>
+    </div>
+
+    <h3>Comments</h3>
+
+    <form mehtod="post" action="{% url 'listing' listing.id %}">
+        {% csrf_token %}
+        <label for="exampleFormControlTextarea1">Add Comment</label>
+        <div class="form-group">
+            
+            <input name="comment" type="text"/>
+            <button type="submit" name="submit">Post Comment</button>
+        </div>
+    </form>
+
+    <div>
+        <h2>Comments:</h2>
+        {% for comment in comments %}
+            <p>{{comment}}</p>
+            <p>posted by {{comment.user}}</p>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Watchlist</h2>
+
+    {% for listing in watched_listings %}
+        <div style="display:flex; margin:10px; font-size:15px;">
+            {{ listing.in_watchlist }} 
+            <img src="{{ listing.image }}">
+        </div>
+    {% endfor %}
+
+{% endblock %}

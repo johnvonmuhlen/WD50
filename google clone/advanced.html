@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <title>Search</title>
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="advanced.css">
+        
+    </head>
+    <body>
+        <div class="rick">
+            <div id="image2">
+                <img src="broogle.png" alt="broogle">
+            </div>
+            <div id="header_right">
+                <a href="index.html" name="search">Search</a>
+                <a href="images.html" name="images">Images</a>
+                <span class="material-icons">apps</span>
+                <span class="material-icons">account_circle</span>
+            </div>
+        </div>
+
+
+        <div class="appbar"> 
+            <label style="margin-left:10px">Advanced Search</label>    
+        </div>
+
+
+        <div id="divi"></div>
+
+
+        <div class="main_body">
+            <form action="https://google.com/search"> 
+
+                <div id="find">
+                    Find pages with...
+                </div>
+
+                <div class="mb-3">
+                    <label for="formGroupExampleInput2" class="form-label">all these words:</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" value="" autofocus="autofocus" name="as_q">
+                </div>
+
+                <div class="mb-3">
+                    <label for="formGroupExampleInput2" class="form-label">this exact word or phrase:</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2" value="" name="as_epq">
+                </div>
+
+                <div class="mb-3">
+                    <label for="formGroupExampleInput2" class="form-label">any of these words:</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" value="" name="as_oq">
+                </div>
+
+                <div class="mb-3">
+                    <label for="formGroupExampleInput2" class="form-label">none of these words:</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2" value="" name="as_eq">
+                </div>
+
+                <div id="bt">
+                    <input class="button" style="-webkit-user-select:none;user-select:none;line-height:100%;height:30px;min-width:120px" value="Advanced Search" type="submit">
+                </div>  
+
+            </form>
+        </div>
+    </body>
+</html>

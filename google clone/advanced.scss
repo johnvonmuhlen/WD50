@@ -1,0 +1,105 @@
+*
+{
+    font-family: arial,sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+    text-decoration: none;
+}
+
+
+.rick
+{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+
+    #image2
+    {
+        display: flex;
+        img
+        {
+            width: 70px;
+        }
+    }   
+}
+
+#header_right
+{
+    a
+    {
+        font-size: 14px;
+        text-decoration: none;
+        color:rgb(32, 32, 32);
+        padding: 10px;
+    }
+
+    a:hover{
+        text-decoration: underline;
+    }
+
+
+    .material-icons
+    {
+        padding: 5px;
+    }
+}
+
+.main_body
+{
+    width: 96%;
+    margin: 40px 2% 0 45px;
+    max-width: 1140px;
+    min-width: 200px;
+}
+
+.appbar
+{
+    color: #d93025;
+    font-size: 20px;
+    margin: 25px 35px;
+}
+
+#divi
+{
+    border-bottom: 1px solid #ebebeb;
+}
+
+#bt
+{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button
+{
+    border: 1px solid #3079ed;
+    color: #fff;
+    box-shadow: none;
+    background-color: #4d90fe;
+    background-image: -webkit-linear-gradient(top,#4d90fe,#4787ed);
+    border-radius: 2px;
+    cursor: default;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.mb-3
+{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    font-size: 13px;
+}
+
+.form-control
+{
+    width: 900px;
+}

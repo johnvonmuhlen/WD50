@@ -1,0 +1,49 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Create Listing</h2>
+
+    <form action="{% url 'index' %}"  method="post">
+      {% csrf_token %}
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Title</label>
+            <input type="text" class="form-control" id="inputEmail4" name="title">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputAddress">Short Description</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="Short and Sweet" name="short_des">
+        </div>
+        <div class="form-group">
+          <label for="inputAddress2">More Detailed Description</label>
+          <input type="text" class="form-control" id="inputAddress2" placeholder="Nice Description" name="detailed_des">
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">Starting Bid</label>
+            <input type="number" class="form-control" id="inputCity" name="starting_bid">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">Category</label>
+            <select id="inputState" class="form-control" name="category">
+              <option selected>Choose...</option>
+              {% for category in categories %}
+                <option>{{category.title}}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+
+        <h4>Optional:</h4>
+
+        
+        <!--<div class="form-group">
+            <label for="exampleFormControlFile1">Upload Image</label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+        </div> -->
+        
+        <button type="submit" class="btn btn-primary">Publish</button>
+    </form>
+
+{% endblock %}
