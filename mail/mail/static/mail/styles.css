@@ -40,5 +40,15 @@ hr .solid
 {
     font-weight: normal;
     color: black;
+    display: flex;
+    justify-content: space-between;
 }
+
+#display-email #bruh
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+
 
