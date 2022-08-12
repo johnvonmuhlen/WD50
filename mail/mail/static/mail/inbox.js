@@ -8,7 +8,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // By default, load the inbox
   load_mailbox('inbox');
+
+  document.querySelector('#send').addEventListener('click', send_email);
 });
+
+function send_email() {
+  fetch('/emails', {
+    method: 'POST',
+    body: JSON.stringify({
+        recipients: document.querySelector('#compose-recipients').value,
+        subject: document.querySelector('#compose-subject').value,
+        body: document.querySelector('#compose-body').value
+      })
+    })
+  .then(response => response.json())
+  .then(result => {
+      // Print result
+      console.log(result);
+    });
+}
+
+
 
 function compose_email() {
 
@@ -23,19 +43,50 @@ function compose_email() {
 }
 
 function load_mailbox(mailbox) {
-  
+
+  fetch('/emails/inbox')
+
+  .then(response => response.json())
+  .then(emails => {
+    // Print emails
+    console.log(emails);
+
+    for (let i = 0; i < emails.length; i++)
+    {
+      //create div
+      let email_container = document.createElement('div');
+
+      //assign class
+      email_container.className = 'email_container';
+
+      let sender = document.createElement('li');
+      let subject = document.createElement('li');
+
+      sender.id = 'sender';
+
+      sender.innerHTML = emails[i].sender;
+      subject.innerHTML = emails[i].subject;
+
+      //add content
+      email_container.append(sender);
+      email_container.append(subject);
+
+      email_container.addEventListener('click', function() {
+        alert('Email has been opened!');
+      });
+      
+      document.querySelector('#emails-view').append(email_container);
+    }
+
+  });
+
+
   // Show the mailbox and hide other views
   document.querySelector('#emails-view').style.display = 'block';
   document.querySelector('#compose-view').style.display = 'none';
 
   // Show the mailbox name
   document.querySelector('#emails-view').innerHTML = `<h3>${mailbox.charAt(0).toUpperCase() + mailbox.slice(1)}</h3>`;
-
-  const email = document.createElement('div');
-  email.innerHTML = 'This is the content of the div.';
-
-  //email.addEventListener('click', function() {
-  //  console.log('This element has been clicked!')
-  //});
-  document.querySelector('#emails-view').append(email);
 }
+
+

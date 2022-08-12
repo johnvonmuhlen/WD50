@@ -1,3 +1,25 @@
 textarea {
     min-height: 400px;
 }
+
+#emails-view .email_container
+{
+    border-style: solid;
+    border-color: black;
+    color: black;
+    border-width: 1px;
+    display:flex;
+    justify-content: space-between;
+}
+
+#emails-view .email_container li
+{
+    list-style: none;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#emails-view .email_container #sender
+{
+    font-weight:bold;
+}
