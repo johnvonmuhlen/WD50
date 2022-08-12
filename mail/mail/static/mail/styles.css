@@ -10,6 +10,13 @@ textarea {
     border-width: 1px;
     display:flex;
     justify-content: space-between;
+    height: 35px;
+}
+
+#emails-view .email_container:hover
+{
+    cursor: pointer;
+    background-color: rgb(231, 230, 230);
 }
 
 #emails-view .email_container li
@@ -23,3 +30,15 @@ textarea {
 {
     font-weight:bold;
 }
+
+hr .solid
+{
+    border-top: 3px solid #bbb;
+}
+
+#display-email #info .span
+{
+    font-weight: normal;
+    color: black;
+}
+

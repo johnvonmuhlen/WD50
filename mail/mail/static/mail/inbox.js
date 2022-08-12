@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
   // Use buttons to toggle between views
   document.querySelector('#inbox').addEventListener('click', () => load_mailbox('inbox'));
@@ -35,6 +35,7 @@ function compose_email() {
   // Show compose view and hide other views
   document.querySelector('#emails-view').style.display = 'none';
   document.querySelector('#compose-view').style.display = 'block';
+  document.querySelector('#display-email').style.display = 'none';
 
   // Clear out composition fields
   document.querySelector('#compose-recipients').value = '';
@@ -61,32 +62,78 @@ function load_mailbox(mailbox) {
 
       let sender = document.createElement('li');
       let subject = document.createElement('li');
+      let timestamp = document.createElement('li')
 
       sender.id = 'sender';
 
       sender.innerHTML = emails[i].sender;
       subject.innerHTML = emails[i].subject;
+      timestamp.innerHTML = emails[i].timestamp;
 
       //add content
       email_container.append(sender);
       email_container.append(subject);
+      email_container.append(timestamp);
+
 
       email_container.addEventListener('click', function() {
-        alert('Email has been opened!');
-      });
-      
-      document.querySelector('#emails-view').append(email_container);
-    }
+        fetch('/emails/' + emails[i].id)
+        .then(response => response.json())
+        .then(email => {
+        // Print email
+          console.log(email);
 
+          document.querySelector('#emails-view').style.display = 'none';
+          document.querySelector('#compose-view').style.display = 'none';
+          document.querySelector('#display-email').style.display = 'block';
+
+          document.querySelector('#text').innerHTML = email.body;
+          document.querySelector('#from').innerHTML = email.sender;
+          document.querySelector('#timestamp').innerHTML = email.timestamp;
+          document.querySelector('#subject').innerHTML = email.subject;
+          document.querySelector('#to').innerHTML = email.recipients;
+
+          document.querySelector('#emails-view').append(email_container);
+
+        });
+      });
+    }
   });
 
 
   // Show the mailbox and hide other views
   document.querySelector('#emails-view').style.display = 'block';
   document.querySelector('#compose-view').style.display = 'none';
+  document.querySelector('#display-email').style.display = 'none';
 
   // Show the mailbox name
   document.querySelector('#emails-view').innerHTML = `<h3>${mailbox.charAt(0).toUpperCase() + mailbox.slice(1)}</h3>`;
 }
 
 
+/*let archive = document.querySelector('#archive');
+archive.addEventListener('click', function() {
+  if (email.archived === false)
+  {
+    fetch('/emails/' + email.id, {
+      method: 'PUT',
+      body: JSON.stringify({
+          archived: true
+      })
+    })
+
+    archive.InnerHTML = "Unarchive"
+  }
+  else if (email.archive === true)
+  {
+    fetch('/emails/' + email.id, {
+      method: 'PUT',
+      body: JSON.stringify({
+          archived: false
+      })
+    })
+
+    archive.InnerHTML = "Archive"
+  }
+
+}); */
