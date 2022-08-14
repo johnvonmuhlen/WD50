@@ -1,0 +1,32 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+<div id="title">
+    <div id="info">
+        <h1 id="username">@{{user_profile.username}}</h1>
+        <h3 id="name">{{user_profile.first_name}} {{user_profile.last_name}}</h3>
+    </div>
+</div>
+
+<div id="followers">
+    <div id="ff">
+        <h6>Followers: {{user_profile.followers}}</h6>
+        <h6>Following: {{user_profile.following}}</h6>
+    </div>
+</div>
+
+{% if current_user.username != user_profile.username %}
+<div id="follow">
+    <button id="follow_button">Follow</button>
+</div>
+{% endif %}
+
+
+
+<div id="posts">
+    Posts
+</div>
+
+
+    
+{% endblock %}

@@ -1,0 +1,76 @@
+#title
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+#info
+{
+    display: flex;
+    flex-direction: column;
+}
+
+#username
+{
+    text-align: center;
+}
+
+#name
+{
+    text-align: center;
+}
+
+#followers
+{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+#follow
+{
+    display:flex;
+    justify-content: center;
+    
+}
+
+#new_post_container
+{
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(215, 215, 215);
+    width: 90%;
+    margin-left: 4%;
+    display: block;
+}
+
+#new_post
+{
+    margin-left: 35px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#hide
+{
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    /*optional*/
+    font-family: arial, sans-serif;
+    /*input has OS specific font-family*/
+    color: #069;
+    cursor: pointer;
+    margin-left: 4%;
+}
+
+#hide:hover
+{
+    text-decoration: underline;
+}
+
+#hide:focus {
+    outline: none;
+    box-shadow: none;
+  }

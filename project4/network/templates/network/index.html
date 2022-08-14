@@ -1,0 +1,28 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+    <div>
+        <h1 id="all_posts">
+            All Posts
+        </h1>
+    </div>
+
+    {% if user.is_authenticated %}
+    <div id="new_post_container">
+        <div id="new_post">
+            <h4>New Post</h4>
+            {% if message %}
+                {{mesage}}
+            {% endif %}
+            <form action="{% url 'new_post' %}" method="post">
+                <textarea name="body" class="form-control" id="exampleFormControlTextarea1" rows="3" style="width: 97%;"></textarea>
+                <input type="submit" class="btn btn-primary" style="margin-top:5px;" id="post" value="Post">
+            </form>
+        </div>
+    </div>
+    <button id="hide">Hide</button>
+    {% endif %}
+
+    <div id="posts">
+    </div>
+{% endblock %}
